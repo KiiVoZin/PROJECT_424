@@ -27,22 +27,25 @@ public class Enemy : MonoBehaviour
         //and distance is greater than some d
         if(dashReady ){
             dashTimeCurrent -= Time.deltaTime;
-            dashTarget = Player.transform.position;
+            
             if(dashTimeCurrent < 0){
                 dashReady = false;
                 dashTimeCurrent = dashTime;
             }else{
                 //dash through to player's last position
-                transform.position=Vector3.MoveTowards(transform.position,dashTarget, dashSpeed*Time.deltaTime);
+                //transform.position=Vector3.MoveTowards(transform.position, dashTarget, dashSpeed*Time.deltaTime);
+               
+                transform.Translate(Vector3.forward * dashSpeed * Time.deltaTime);
 
             }
         }else{
             //move towards to player normally
-            transform.position=Vector3.MoveTowards(transform.position,Player.transform.position + new Vector3(0.0f,1.5f,0.0f),(moveSpeed*dashCooldownCurrent/dashCooldown)*Time.deltaTime);
+            transform.position=Vector3.MoveTowards(transform.position,Player.transform.position ,(moveSpeed*dashCooldownCurrent/dashCooldown)*Time.deltaTime);
 
             dashCooldownCurrent -= Time.deltaTime;
             if(dashCooldownCurrent < 0){
                 dashReady = true;
+                dashTarget = Player.transform.position;
                 dashCooldownCurrent = dashCooldown;
             }
         }
@@ -52,11 +55,12 @@ public class Enemy : MonoBehaviour
         
 
         //slowly look at player
-        Vector3 relativePos = Player.transform.position - transform.position;
-        Quaternion toRotation = Quaternion.LookRotation(relativePos);
-        transform.rotation = Quaternion.Lerp( transform.rotation, toRotation, turnAroundSpeed * Time.deltaTime );
+        if(!dashReady){
+            Vector3 relativePos = Player.transform.position - transform.position;
+            Quaternion toRotation = Quaternion.LookRotation(relativePos);
+            transform.rotation = Quaternion.Lerp( transform.rotation, toRotation, turnAroundSpeed * Time.deltaTime );
+        }
         
-
         
         
     }
