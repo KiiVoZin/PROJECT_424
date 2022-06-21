@@ -66,5 +66,6 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.Lerp( transform.rotation, toRotation, turnAroundSpeed * Time.deltaTime );
         }
         //transform.LookAt(Player.transform);
+        //Yo!
     }
 }
