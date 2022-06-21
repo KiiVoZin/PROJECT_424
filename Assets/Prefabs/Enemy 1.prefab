@@ -61,11 +61,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  moveSpeed: 2.2
-  turnAroundSpeed: 3.3
-  dashSpeed: 6
-  dashTime: 0.5
-  dashTimeCurrent: 0.5
+  moveSpeed: 240
+  turnAroundSpeed: 4
+  dashSpeed: 720
+  dashTime: 1
+  dashTimeCurrent: 1
   dashCooldown: 5
   dashCooldownCurrent: 5
   dashReady: 0
