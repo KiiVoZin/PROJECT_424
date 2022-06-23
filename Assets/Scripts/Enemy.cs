@@ -36,49 +36,52 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        dashCooldownCurrent -= Time.deltaTime;
         if (dashReady)
         {
-            dashTimeCurrent -= Time.deltaTime;
-
-            if (dashTimeCurrent < 0)
-            {
-                dashReady = false;
-                dashTimeCurrent = dashTime;
-            }
-            else
-            {
-                //dash through to player's last position
-                //transform.position = Vector3.MoveTowards(transform.position, dashTarget, dashSpeed * Time.deltaTime);
-                m_Rigidbody.AddForce(transform.forward * dashSpeed * Time.deltaTime);
-                //transform.Translate(Vector3.forward * dashSpeed * Time.deltaTime);
-            }
+            dash();
         }
         else
         {
-            //move towards to player normally
-            //transform.position=Vector3.MoveTowards(transform.position,Player.transform.position , (moveSpeed) * Time.deltaTime);
-            m_Rigidbody.AddForce(transform.forward * moveSpeed / (dashCooldownCurrent + 1.0f) * Time.deltaTime);
-
-            dashCooldownCurrent -= Time.deltaTime;
-            if (dashCooldownCurrent <= 0)
-            {
-                dashReady = true;
-                dashTarget = Player.transform.position;
-                dashCooldownCurrent = dashCooldown;
-            }
+            move();
         }
+    }
 
+    void dash()
+    {
+        dashTimeCurrent -= Time.deltaTime;
 
-        //slowly look at player
-        if (!dashReady)
+        if (dashTimeCurrent < 0)
         {
-            //fly above to observe
-            m_Rigidbody.AddForce(transform.up * Random.Range(12.0f / dashCooldown, 240.0f / dashCooldown) * Time.deltaTime);
-
-            Vector3 relativePos = Player.transform.position - transform.position;
-            Quaternion toRotation = Quaternion.LookRotation(relativePos);
-            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, turnAroundSpeed * Time.deltaTime);
+            dashReady = false;
+            dashTimeCurrent = dashTime;
         }
-        //transform.LookAt(Player.transform);
+        else
+        {
+            //dash through to player's last position
+            //transform.position = Vector3.MoveTowards(transform.position, dashTarget, dashSpeed * Time.deltaTime);
+            m_Rigidbody.AddForce(transform.forward * dashSpeed * Time.deltaTime);
+            //transform.Translate(Vector3.forward * dashSpeed * Time.deltaTime);
+        }
+    }
+
+    void move()
+    {
+        //move towards to player normally
+        //transform.position=Vector3.MoveTowards(transform.position,Player.transform.position , (moveSpeed) * Time.deltaTime);
+        m_Rigidbody.AddForce(transform.forward * moveSpeed / (dashCooldownCurrent + 1.0f) * Time.deltaTime);
+
+        if (dashCooldownCurrent <= 0)
+        {
+            dashReady = true;
+            dashTarget = Player.transform.position;
+            dashCooldownCurrent = dashCooldown;
+        }
+        //fly above to observe
+        m_Rigidbody.AddForce(transform.up * Random.Range(12.0f / dashCooldown, 240.0f / dashCooldown) * Time.deltaTime);
+
+        Vector3 relativePos = Player.transform.position - transform.position;
+        Quaternion toRotation = Quaternion.LookRotation(relativePos);
+        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, turnAroundSpeed * Time.deltaTime);
     }
 }
