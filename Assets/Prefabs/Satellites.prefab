@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPrefab: {fileID: 9042467261175239331, guid: 633d0a60a810e97439d27978e4fabf76, type: 3}
-  parent: {fileID: 0}
-  maxSatCount: 3
-  satCount: 0
-  rotationSpeed: 1
+  Player: {fileID: 0}
+  satCount: 3
+  speed: 180
+  radius: 5

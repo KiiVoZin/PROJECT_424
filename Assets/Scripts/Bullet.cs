@@ -22,13 +22,13 @@ public class Bullet : MonoBehaviour
     void OnDisable()
     {   
         
-        Debug.Log("PrintOnDisable: script was disabled");
+        //Debug.Log("PrintOnDisable: script was disabled");
     }
 
     void OnEnable()
     {
        
-        Debug.Log("PrintOnEnable: script was enabled");
+        //Debug.Log("PrintOnEnable: script was enabled");
         lifeTimeLeft = lifeTime;
        
     }
@@ -40,7 +40,7 @@ public class Bullet : MonoBehaviour
         
         lifeTimeLeft -= Time.deltaTime;
         if(lifeTimeLeft < 0 ){
-            gameObject.active = false;
+            gameObject.SetActive(false);
         }
 
         transform.localPosition += transform.forward * speed * Time.deltaTime;

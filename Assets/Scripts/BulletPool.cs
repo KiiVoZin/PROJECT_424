@@ -17,9 +17,10 @@ public class BulletPool : MonoBehaviour
 
         pooledObjects = new List<GameObject>();
         for(int i = 0; i < poolVolume; i++){
-            GameObject o = Instantiate(prefab);
+            GameObject o = Instantiate(prefab, transform);
             o.SetActive(false);
             pooledObjects.Add(o);
+            
         }
     }
 

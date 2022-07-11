@@ -63,7 +63,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   moveSpeed: 240
   turnAroundSpeed: 4
-  dashSpeed: 720
+  dashSpeed: 600
   dashTime: 1
   dashTimeCurrent: 1
   dashCooldown: 5

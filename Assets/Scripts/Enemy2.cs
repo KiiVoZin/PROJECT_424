@@ -34,7 +34,7 @@ public class Enemy2 : MonoBehaviour
     public float moveFasterRadius        = 3;
     public Vector3 dashTarget;
 
-    public int R;
+    public int R = 3;
     private int randomDirection = 1;
     /* public int patternCounter = 0; */
     /* private int [] pattern1    = {1,0,0,1}; */
@@ -53,7 +53,7 @@ public class Enemy2 : MonoBehaviour
         //Here the GameObject's Collider is not a trigger
         m_ObjectCollider.isTrigger = false;
         //Output whether the Collider is a trigger type Collider or not
-        Debug.Log("Trigger On : " + m_ObjectCollider.isTrigger);
+        //Debug.Log("Trigger On : " + m_ObjectCollider.isTrigger);
 
         
     }
@@ -65,6 +65,7 @@ public class Enemy2 : MonoBehaviour
         if(randomIndex == 2){
             GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * maxSpeed;
             R = UnityEngine.Random.Range(3, 9);
+            Debug.Log(R);
             if(randomDir == 0){
                 randomDirection = -1;
             }else{
@@ -148,9 +149,7 @@ public class Enemy2 : MonoBehaviour
         }
 
         if(state == 4){
-            int x = 1500;
             
-            int sinFrequency = 2;
             turnAroundSpeed = turnAroundSpeedMax / 2;
             //transform.position += new Vector3( 0.0f,0.1f, 0.0f);
             //Fire bullets
@@ -233,7 +232,6 @@ public class Enemy2 : MonoBehaviour
         
         if(state == 3){
             
-            float xTurnSpeed = 50;
             int x = 40;
             int sinFrequency = 2;
             moveSpeed = moveSpeedMax * 15;
