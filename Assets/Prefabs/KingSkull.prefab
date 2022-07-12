@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 7269086736365994828}
   m_Layer: 0
   m_Name: KingSkull
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: 8676797260558622740, guid: 65f81bd084eca6240ba82b0127729cfa, type: 3}
   moveSpeed: 440
   moveSpeedMax: 2.2
   turnAroundSpeed: 4

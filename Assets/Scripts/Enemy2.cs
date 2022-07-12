@@ -78,7 +78,7 @@ public class Enemy2 : MonoBehaviour
         timeToNextFire = 1.0f/(fireRate*rateMultiplier);
         //patternCounter++;
         for(int i = 0; i < count; i++){
-            GameObject newBullet = BulletPool.instance.GetPooledObj(); 
+            GameObject newBullet = EnemyBulletPool.instance.GetPooledObj(); 
             if(newBullet == null){
                 return;
             } 
@@ -95,7 +95,7 @@ public class Enemy2 : MonoBehaviour
     }void fireBulletFromEyes(float rateMultiplier, float speedMultiplier){
         timeToNextFire = 1.0f/(fireRate*rateMultiplier);
         //patternCounter++;  
-        GameObject newBullet  = BulletPool.instance.GetPooledObj();
+        GameObject newBullet  = EnemyBulletPool.instance.GetPooledObj();
         if(newBullet == null){
             return;
         } 
@@ -105,7 +105,7 @@ public class Enemy2 : MonoBehaviour
         newBullet. transform.position  = transform.Find("eyeL").transform.position;
         newBullet. transform.rotation  = transform.Find("eyeL").transform.rotation;
         
-        GameObject newBullet2  = BulletPool.instance.GetPooledObj();
+        GameObject newBullet2  = EnemyBulletPool.instance.GetPooledObj();
         if(newBullet2 == null){
             return;
         } 
