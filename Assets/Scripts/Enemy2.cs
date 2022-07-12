@@ -65,7 +65,6 @@ public class Enemy2 : MonoBehaviour
         if(randomIndex == 2){
             GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * maxSpeed;
             R = UnityEngine.Random.Range(3, 9);
-            Debug.Log(R);
             if(randomDir == 0){
                 randomDirection = -1;
             }else{
