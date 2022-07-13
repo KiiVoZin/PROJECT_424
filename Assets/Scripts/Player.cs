@@ -27,16 +27,32 @@ public class Player : MonoBehaviour
         if (currentHealt <= 0)
         {
             currentHealt = 0;
-            Debug.Log("Dead");
         }
+    }
+
+    void RestoreHealth(int health)
+    {
+        currentHealt += health;
+        if (currentHealt > maxHealth)
+        {
+            currentHealt = maxHealth;
+        }
+        healthBar.setHealth(currentHealt);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag=="Enemy")
         {
+            TakeDamage(20);
+        }
+        if (other.tag == "EnemyBullet")
+        {
             TakeDamage(10);
-            Debug.Log("Hit");
+        }
+        if (other.tag == "Health")
+        {   
+            RestoreHealth(30);
         }
     }
 }
