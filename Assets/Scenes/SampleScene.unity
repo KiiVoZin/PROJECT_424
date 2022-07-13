@@ -187,9 +187,33 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7269086736365994828, guid: 8baefa2f27ccdef448b1546d6c5a94b9, type: 3}
+      propertyPath: state
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269086736365994828, guid: 8baefa2f27ccdef448b1546d6c5a94b9, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 936183011}
+    - target: {fileID: 7269086736365994828, guid: 8baefa2f27ccdef448b1546d6c5a94b9, type: 3}
+      propertyPath: fireRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269086736365994828, guid: 8baefa2f27ccdef448b1546d6c5a94b9, type: 3}
+      propertyPath: dashSpeed
+      value: 440000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269086736365994828, guid: 8baefa2f27ccdef448b1546d6c5a94b9, type: 3}
+      propertyPath: moveSpeed
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269086736365994828, guid: 8baefa2f27ccdef448b1546d6c5a94b9, type: 3}
+      propertyPath: moveSpeedMax
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 7269086736365994828, guid: 8baefa2f27ccdef448b1546d6c5a94b9, type: 3}
+      propertyPath: moveFasterRadius
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8baefa2f27ccdef448b1546d6c5a94b9, type: 3}
 --- !u!1 &705507993
