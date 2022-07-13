@@ -212,9 +212,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   lifeTime: 0
-  babyStateEnd: 1
+  babyStateEnd: 0
   speed: 12
   rotateSpeed: 5
+  lifeStateEnd: 5
 --- !u!65 &4374952037934535192
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -310,6 +311,10 @@ PrefabInstance:
     - target: {fileID: 8662210798113329357, guid: adae5d5efd5450e4e9df23dc3a2ae42b, type: 3}
       propertyPath: NoiseModule.strength.scalar
       value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662210798113329357, guid: adae5d5efd5450e4e9df23dc3a2ae42b, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8662210798113329357, guid: adae5d5efd5450e4e9df23dc3a2ae42b, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b

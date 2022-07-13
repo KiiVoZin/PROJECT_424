@@ -7,10 +7,10 @@ public class HomingMissile : MonoBehaviour {
 
 	public Transform target;
 	public float lifeTime = 0.0f;
-	public float babyStateEnd = 1;
+	public float babyStateEnd = 0f;
 	public float speed = 5f;
 	public float rotateSpeed = 1f;
-	public float lifeStateEnd = 3;
+	public float lifeStateEnd = 5;
 
 	private Rigidbody rb;
 	private Transform trans;
