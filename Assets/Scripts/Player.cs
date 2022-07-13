@@ -48,10 +48,12 @@ public class Player : MonoBehaviour
         }
         if (other.tag == "EnemyBullet")
         {
+            other.gameObject.SetActive(false);
             TakeDamage(10);
         }
         if (other.tag == "Health")
         {   
+            Destroy(other.gameObject);
             RestoreHealth(30);
         }
     }
