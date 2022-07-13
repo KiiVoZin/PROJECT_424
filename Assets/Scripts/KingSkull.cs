@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class Enemy2 : MonoBehaviour
+public class KingSkull : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject Player;
