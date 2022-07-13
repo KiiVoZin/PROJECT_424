@@ -6,9 +6,10 @@ using UnityEngine;
 public class HomingMissile : MonoBehaviour {
 
 	public Transform target;
-	
+	public float lifeTime = 0.0f;
+	public float babyStateEnd = 1;
 	public float speed = 5f;
-	public float rotateSpeed = 200f;
+	public float rotateSpeed = 1f;
 
 	private Rigidbody rb;
 	private Transform trans;
@@ -18,17 +19,21 @@ public class HomingMissile : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		trans=GetComponent<Transform>();
-
+	transform.position += transform.forward * 0.3f;// head start hoaming missile with 0.5
 	}
 	
 	void FixedUpdate () {
-		rb.velocity=trans.forward*speed;
+		lifeTime+=Time.deltaTime;
 
-		var rocketlock=Quaternion.LookRotation(target.position - trans.position);
-
-		rb.MoveRotation(Quaternion.RotateTowards(trans.rotation,rocketlock,rotateSpeed));
-
-
+		if(lifeTime < babyStateEnd){
+			transform.position += transform.forward * Time.deltaTime * speed / 30;
+		}
+		if(lifeTime >= babyStateEnd){
+			rb.velocity=trans.forward*speed;
+			var rocketlock=Quaternion.LookRotation(target.position - trans.position);
+			rb.MoveRotation(Quaternion.RotateTowards(trans.rotation, rocketlock, rotateSpeed));
+		}
+		
 	}
 
 	

@@ -51,6 +51,9 @@ public class PlayerMissile : MonoBehaviour
                 
                 HomingMissile hm=o.GetComponent<HomingMissile>();
                 hm.target=closestEnemy;
+                hm.transform.Translate(0,0,-0.3f);
+                hm.transform.Rotate(new Vector3(0, 0 , i*360/misilleCount), Space.World);
+                //hm.GetComponent<Rigidbody>().AddForce(hm.transform.forward* 100.0f);
 
             }
 
