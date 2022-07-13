@@ -46,15 +46,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  swingAngle: 180
+  swingAngle: 1440
+  swingAngleCurrent: 1440
   cooldown: 1
   cooldownCurrent: 1
-  swingCount: 1
-  swingCountCurrent: 1
-  swingSpeedMax: 24
-  swingSpeed: 24
-  radiusMax: 1
-  radius: 1
+  swingSpeedMax: 1440
+  swingSpeed: 1440
+  radiusMax: 3
+  radius: 3
   active: 0
 --- !u!1001 &2058123938931123601
 PrefabInstance:
