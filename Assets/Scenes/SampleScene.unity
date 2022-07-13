@@ -658,7 +658,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2058123938885191506, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
       propertyPath: m_Name
-      value: BigFuckingSword
+      value: Sword
       objectReference: {fileID: 0}
     - target: {fileID: 2058123938885191507, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
       propertyPath: m_RootOrder
@@ -678,7 +678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2058123938885191507, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.993913
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2058123938885191507, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -690,7 +690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2058123938885191507, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.11016804
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2058123938885191507, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -702,12 +702,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2058123938885191507, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -12.65
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8983775725260931697, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
       propertyPath: Player
       value: 
       objectReference: {fileID: 936183011}
+    - target: {fileID: 8983775725260931697, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
+      propertyPath: cooldown
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983775725260931697, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
+      propertyPath: cooldownCurrent
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44200c5b297781f4fbfa3d2fb586adf7, type: 3}
 --- !u!1001 &1474541603

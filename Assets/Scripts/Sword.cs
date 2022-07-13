@@ -33,7 +33,7 @@ public class Sword : MonoBehaviour
             active = true;
             
         }
-        sinFrequency = (swingAngle / swingSpeed) / 2;
+        sinFrequency = (swingAngle / swingSpeed) ;
 
         if(active){
             transform.position = Player.transform.position;
