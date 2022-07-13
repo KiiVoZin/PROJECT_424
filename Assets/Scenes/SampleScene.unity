@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 2
   cooldownCurrent: 2
-  misilleCount: 3
+  missileCount: 1
   closestEnemy: {fileID: 0}
   EnemyContact: 0
   prefab: {fileID: 9040076567545079176, guid: f32cdbbabb42ae941a30323bba75ac57, type: 3}

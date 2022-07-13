@@ -10,6 +10,7 @@ public class HomingMissile : MonoBehaviour {
 	public float babyStateEnd = 1;
 	public float speed = 5f;
 	public float rotateSpeed = 1f;
+	public float lifeStateEnd = 3;
 
 	private Rigidbody rb;
 	private Transform trans;
@@ -25,6 +26,9 @@ public class HomingMissile : MonoBehaviour {
 	void FixedUpdate () {
 		lifeTime+=Time.deltaTime;
 
+		if(lifeTime >= lifeStateEnd){
+			Destroy(gameObject);
+		}
 		if(lifeTime < babyStateEnd){
 			transform.position += transform.forward * Time.deltaTime * speed / 30;
 		}
