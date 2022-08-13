@@ -44,8 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5480e9714c0ffbd45bf718ce0e149fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+  Player: {fileID: 0}
   Skull: {fileID: 8863390654715230668, guid: da0b808e8a90c91409249fe21d071dd0, type: 3}
+  _titleSword: {fileID: 0}
+  _titleSatellite: {fileID: 0}
+  _titleMissile: {fileID: 0}
+  expbar: {fileID: 0}
   level: 1
   xp: 0
   xp2Next: 100
@@ -58,8 +62,8 @@ MonoBehaviour:
   bonusProjectile: 0
   xpMultiplier: 1
   time: 0
-  spawnSpeed: 1
-  spawnMultiplier: 1
+  spawnSpeed: 2.03
+  spawnMultiplier: 3
   spawnInterval: 1
   spawnIntervalCurrent: 1
   misilleLevel: 1
@@ -85,3 +89,4 @@ MonoBehaviour:
   skullLevel: 1
   skullBaseHealth: 10
   skullBaseDamage: 10
+  xpPrize: 26

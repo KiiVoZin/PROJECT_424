@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GM : MonoBehaviour
 {
 
     [SerializeField] GameObject Player;
     [SerializeField] GameObject Skull;
+    [SerializeField] 
+    private Text _titleSword;
+    [SerializeField] 
+    private Text _titleSatellite;
+    [SerializeField] 
+    private Text _titleMissile;
+    public Expbar expbar;
 
     //Player variables
     public int level                     = 1;
@@ -124,7 +132,10 @@ public class GM : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        _titleSword.text = ""+0;
+        _titleMissile.text=""+0;
+        _titleSatellite.text=""+0;
         spawnInterval = spawnInterval / spawnSpeed;
     }
 
@@ -165,6 +176,9 @@ public class GM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _titleSword.text = ""+swordLevel;
+        _titleMissile.text=""+misilleLevel;
+        _titleSatellite.text=""+satelliteLevel;
         time += Time.deltaTime;
         spawnIntervalCurrent -= Time.deltaTime;
         if(spawnIntervalCurrent < 0){

@@ -123,6 +123,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &299996190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 299996190, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
+  m_PrefabInstance: {fileID: 574318721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &491654897 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 491654897, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
+  m_PrefabInstance: {fileID: 574318721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &563972739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -191,6 +213,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 299996188, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
+      propertyPath: m_Name
+      value: SatelliteLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 810605416, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -198,6 +224,10 @@ PrefabInstance:
     - target: {fileID: 810605416, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2017487031, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
+      propertyPath: m_Name
+      value: SwordLevel
       objectReference: {fileID: 0}
     - target: {fileID: 5044989743462508188, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
       propertyPath: m_AnchorMax.x
@@ -888,6 +918,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+--- !u!114 &2017487033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2017487033, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
+  m_PrefabInstance: {fileID: 574318721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &792356891685114039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1009,13 +1050,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 936183011}
     - target: {fileID: 2310419293188687389, guid: 66036bf29a947254cb055870c571639f, type: 3}
-      propertyPath: spawnSpeed
-      value: 2.03
-      objectReference: {fileID: 0}
+      propertyPath: _titleSword
+      value: 
+      objectReference: {fileID: 2017487033}
     - target: {fileID: 2310419293188687389, guid: 66036bf29a947254cb055870c571639f, type: 3}
-      propertyPath: spawnMultiplier
-      value: 3
-      objectReference: {fileID: 0}
+      propertyPath: _titleMissile
+      value: 
+      objectReference: {fileID: 491654897}
+    - target: {fileID: 2310419293188687389, guid: 66036bf29a947254cb055870c571639f, type: 3}
+      propertyPath: _titleSatellite
+      value: 
+      objectReference: {fileID: 299996190}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66036bf29a947254cb055870c571639f, type: 3}
 --- !u!1001 &2965343526865961856
