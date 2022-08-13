@@ -53,7 +53,7 @@ public class GM : MonoBehaviour
 
 
     void gainXp(float amount){
-        xp += amount * xpMultiplier
+        xp += amount * xpMultiplier;
         while(xp >= xp2Next){
             levelUp();
             xp -= xp2Next;
