@@ -55,13 +55,13 @@ public class GM : MonoBehaviour
     void gainXp(float amount){
         xp += amount * xpMultiplier
         while(xp >= xp2Next){
-            levelUp()
+            levelUp();
             xp -= xp2Next;
         }
 
     }
     void levelUp(){
-        level ++
+        level ++;
         //open levelUp ui
 
 
@@ -74,7 +74,7 @@ public class GM : MonoBehaviour
     }
     void upgradeCooldownReduction(float amount){
         cooldownReduction += amount;
-    }
+    }   
 
     void upgradeWeapon(string name){
         if      (name == "misille"){
