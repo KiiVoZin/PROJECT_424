@@ -73,7 +73,7 @@ public class GM : MonoBehaviour
     public float skullXpPrize            = 26;
 
 
-    void gainXp(float amount){
+    public void gainXp(float amount){
         xp += amount * xpMultiplier;
         while(xp >= xp2Next){
             levelUp();
@@ -81,24 +81,24 @@ public class GM : MonoBehaviour
         }
 
     }
-    void levelUp(){
+    public void levelUp(){
         level ++;
         //open levelUp ui
-        Debug.Log("level up")
+        Debug.Log("level up");
 
 
     }
-    void upgradeDamageMultiplier(float amount){
+    public void upgradeDamageMultiplier(float amount){
         damageMultiplier += amount;
     }
-    void upgradeRotationSpeedMultiplier(float amount){
+    public void upgradeRotationSpeedMultiplier(float amount){
         rotationSpeedMultiplier += amount;
     }
-    void upgradeCooldownReduction(float amount){
+    public void upgradeCooldownReduction(float amount){
         cooldownReduction += amount;
     }   
 
-    void upgradeWeapon(string name){
+    public void upgradeWeapon(string name){
         if      (name == "misille"){
             upgradeMisille();
         }else if(name == "satellite"){
@@ -107,14 +107,14 @@ public class GM : MonoBehaviour
             upgradeSword();
         }
     }
-    void upgradeMisille(){
+    public void upgradeMisille(){
         misilleLevel ++;
         
         misilleDamage = misilleBaseDamage * misilleLevel  * damageMultiplier;
         misilleCount  = misilleLevel + bonusProjectile;
     
     }
-    void upgradeSatellite(){
+    public void upgradeSatellite(){
         satelliteLevel ++;
         
         satelliteDamage = satelliteBaseDamage * satelliteLevel  * damageMultiplier;
@@ -123,7 +123,7 @@ public class GM : MonoBehaviour
     
     }
 
-    void upgradeSword(){
+    public void upgradeSword(){
         swordLevel ++;
         
         swordDamage     = swordBaseDamage     * swordLevel *  damageMultiplier;
@@ -143,7 +143,7 @@ public class GM : MonoBehaviour
 
     void spawnSkull(){
         for(var i = 0; i<spawnMultiplier; i++){
-            Debug.Log("skull spawned");  
+             
             //spawn skull
             spawnIntervalCurrent = spawnInterval;
             GameObject newSkull = SkullPool.instance.GetPooledObj(); 
@@ -153,7 +153,7 @@ public class GM : MonoBehaviour
             newSkull.SetActive(true);
             e.maxHealth    = skullBaseHealth * enemyHealthMultiplier;
             e.currentHealth = skullBaseHealth * enemyHealthMultiplier;
-            e.Player = Player;  
+            e.Player = Player;
             
             float randx = Random.Range(4, 20);
             float randz = Random.Range(4, 20);

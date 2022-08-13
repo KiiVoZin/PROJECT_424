@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Player;
-    public GameObject GameManager;
 
     Collider m_ObjectCollider;
     Rigidbody m_Rigidbody;
@@ -45,7 +44,8 @@ public class Enemy : MonoBehaviour
         if(currentHealth <= 0){
 
             gameObject.SetActive(false);
-            GM gm = gameObject.GetComponent<GM>()
+            GameObject gameManager = GameObject.Find("GameManager");
+            GM gm = (GM) gameManager.GetComponent(typeof(GM));
             gm.gainXp(gm.skullXpPrize);
         }
         if(dashReady ){
