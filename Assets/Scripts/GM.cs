@@ -7,7 +7,7 @@ public class GM : MonoBehaviour
 
     //Player variables
     public int level                     = 1;
-    public int xp                        = 0;
+    public float xp                      = 0;
     public int xp2Next                   = 100;
     public int health                    = 100;
     public float regen                   = 1;
@@ -17,7 +17,7 @@ public class GM : MonoBehaviour
     public float rotationSpeedMultiplier = 1;
     public float cooldownReduction       = 0;  // 15 = %15 cooldown reduction
     public float damageReduction         = 0;
-    public float bonusProjectile         = 0;
+    public int bonusProjectile         = 0;
     public float xpMultiplier            = 1;
  
  
