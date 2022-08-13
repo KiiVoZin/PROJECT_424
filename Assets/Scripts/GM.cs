@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class GM : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    
 
-=======
     [SerializeField] GameObject Player;
     [SerializeField] GameObject Skull;
->>>>>>> Stashed changes
+
     //Player variables
     public int level                     = 1;
     public float xp                      = 0;
