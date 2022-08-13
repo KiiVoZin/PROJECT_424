@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -17,7 +19,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(currentHealt==0){
+            LoadA();
+        }
     }
 
     void TakeDamage(int damage)
@@ -56,5 +60,11 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             RestoreHealth(30);
         }
+    }
+
+    public void LoadA()
+    {
+        Debug.Log("sceneName to load: " + "MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }
