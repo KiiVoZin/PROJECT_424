@@ -79,4 +79,10 @@ public class Player : MonoBehaviour
         Debug.Log("sceneName to load: " + "MainMenu");
         SceneManager.LoadScene("MainMenu");
     }
+    public void Resume(){
+
+        pauseMenuUI.SetActive(false);
+        Time.timeScale=1f;
+        gameIsPaused=false;
+    }
 }
