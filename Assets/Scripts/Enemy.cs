@@ -41,6 +41,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {   
         if(currentHealt==0){
+
+            
             Destroy(gameObject);
         }
         if(dashReady ){

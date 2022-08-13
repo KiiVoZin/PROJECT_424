@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealt;
     public HealthBar healthBar;
+    public static bool gameIsPaused=false;
+    public GameObject pauseMenuUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +63,16 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             RestoreHealth(30);
         }
+        if(other.tag=="Chest"){
+            if(!gameIsPaused){
+                pauseMenuUI.SetActive(true);
+                Time.timeScale=0f;
+                gameIsPaused=true;
+            }
+        }
     }
+    
+    
 
     public void LoadA()
     {
