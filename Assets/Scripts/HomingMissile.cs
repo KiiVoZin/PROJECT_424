@@ -25,17 +25,28 @@ public class HomingMissile : MonoBehaviour {
 	
 	void FixedUpdate () {
 		lifeTime+=Time.deltaTime;
-
-		if(lifeTime >= lifeStateEnd){
-			Destroy(gameObject);
-		}
-		if(lifeTime < babyStateEnd){
-			transform.position += transform.forward * Time.deltaTime * speed / 30;
-		}
-		if(lifeTime >= babyStateEnd){
-			rb.velocity=trans.forward*speed;
-			var rocketlock=Quaternion.LookRotation(target.position - trans.position);
-			rb.MoveRotation(Quaternion.RotateTowards(trans.rotation, rocketlock, rotateSpeed));
+		if(target!=null){
+			if(lifeTime >= lifeStateEnd){
+				Destroy(gameObject);
+			}
+			if(lifeTime < babyStateEnd){
+				transform.position += transform.forward * Time.deltaTime * speed / 30;
+			}
+			if(lifeTime >= babyStateEnd){
+				rb.velocity=trans.forward*speed;
+				var rocketlock=Quaternion.LookRotation(target.position - trans.position);
+				rb.MoveRotation(Quaternion.RotateTowards(trans.rotation, rocketlock, rotateSpeed));
+			}
+		}else{
+			if(lifeTime >= lifeStateEnd){
+				Destroy(gameObject);
+			}
+			if(lifeTime < babyStateEnd){
+				transform.position += transform.forward * Time.deltaTime * speed / 30;
+			}
+			if(lifeTime >= babyStateEnd){
+				rb.velocity=trans.forward*speed;
+			}
 		}
 		
 	}
