@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public int currentHealt;
     public HealthBar healthBar;
     public static bool gameIsPaused=false;
-    public GameObject pauseMenuUI;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +20,14 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        
         if(currentHealt==0){
             LoadA();
+        }
+        if(gameIsPaused){
+            
+
         }
     }
 
@@ -64,11 +68,8 @@ public class Player : MonoBehaviour
             RestoreHealth(30);
         }
         if(other.tag=="Chest"){
-            if(!gameIsPaused){
-                pauseMenuUI.SetActive(true);
-                Time.timeScale=0f;
-                gameIsPaused=true;
-            }
+            Destroy(other.gameObject);
+           
         }
     }
     
@@ -79,10 +80,5 @@ public class Player : MonoBehaviour
         Debug.Log("sceneName to load: " + "MainMenu");
         SceneManager.LoadScene("MainMenu");
     }
-    public void Resume(){
-
-        pauseMenuUI.SetActive(false);
-        Time.timeScale=1f;
-        gameIsPaused=false;
-    }
+    
 }
