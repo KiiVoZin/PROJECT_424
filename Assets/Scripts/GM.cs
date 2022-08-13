@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class GM : MonoBehaviour
 {
+<<<<<<< Updated upstream
     
 
+=======
+    [SerializeField] GameObject Player;
+    [SerializeField] GameObject Skull;
+>>>>>>> Stashed changes
     //Player variables
     public int level                     = 1;
     public float xp                      = 0;
@@ -18,11 +23,18 @@ public class GM : MonoBehaviour
     public float rotationSpeedMultiplier = 1;
     public float cooldownReduction       = 0;  // 15 = %15 cooldown reduction
     public float damageReduction         = 0;
-    public int bonusProjectile         = 0;
+    public int bonusProjectile           = 0;
     public float xpMultiplier            = 1;
  
+    //world variables
+    public float time                    = 0;
+    public float spawnSpeed              = 5;
+    public int spawnMultiplier           = 3;
+    public float spawnInterval           = 1;
+    public float spawnIntervalCurrent    = 1;
+
  
- 
+    //weapon variables
     public int   misilleLevel            = 1;
     public int   misilleCount            = 1;
     public int   misilleBaseDamage       = 60;
@@ -47,9 +59,13 @@ public class GM : MonoBehaviour
 
     
     //Enemy variables
+    public float enemyDamageMultiplier   = 1;
+    public float enemyHealthMultiplier   = 1;
+
     public int skullLevel                = 1;
-    public int skullBaseHealth           = 10;
-    public int skullBaseDamage           = 10;
+    public float skullBaseHealth         = 100;
+    public float skullBaseDamage         = 10;
+    public float xpPrize                 = 26;
 
 
     void gainXp(float amount){
@@ -112,12 +128,52 @@ public class GM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawnInterval = spawnInterval / spawnSpeed;
     }
 
+
+    void spawnSkull(){
+        for(var i = 0; i<spawnMultiplier; i++){
+            Debug.Log("skull spawned");  
+            //spawn skull
+            spawnIntervalCurrent = spawnInterval;
+            GameObject newSkull = SkullPool.instance.GetPooledObj(); 
+
+            Enemy e = newSkull.GetComponent<Enemy>();
+            //e.speed = b.baseSpeed * speedMultiplier;
+            newSkull.SetActive(true);
+            e.maxHealth    = skullBaseHealth * enemyHealthMultiplier;
+            e.currentHealth = skullBaseHealth * enemyHealthMultiplier;
+            e.Player = Player;  
+            
+            float randx = Random.Range(4, 20);
+            float randz = Random.Range(4, 20);
+            float rands = 0; // random sign
+            float randb = 0; // random sign
+            if(Random.value<0.5f)
+                rands=-1;
+            else
+                rands=1;
+            if(Random.value<0.5f)
+                randb=-1;
+            else
+                randb=1;
+
+            newSkull.transform.position  = new Vector3(Player.transform.position.x + rands*randx, Player.transform.position.y, randb*randz);
+        }
+        
+
+        
+    }
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
+        spawnIntervalCurrent -= Time.deltaTime;
+        if(spawnIntervalCurrent < 0){
+            spawnSkull();
+        }
+
         
     }
 }

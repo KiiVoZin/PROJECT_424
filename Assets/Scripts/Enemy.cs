@@ -5,11 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject Player;
+    public GameObject Player;
     Collider m_ObjectCollider;
     Rigidbody m_Rigidbody;
-    public int maxHealth = 100;
-    public int currentHealt;
+    public float maxHealth = 100;
+    public float currentHealth;
     public float moveSpeed           = 2.2f;
     public float turnAroundSpeed     = 3.3f;
     public float dashSpeed           = 6.0f;
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         child = transform.GetChild(0);
         childcolor.material.color =child.GetComponent<Renderer>().material.color;
 
-        currentHealt = maxHealth;
+        currentHealth = maxHealth;
         
         //Fetch the Rigidbody from the GameObject with this script attached
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -40,10 +40,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(currentHealt==0){
+        if(currentHealth <= 0){
 
-            
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         if(dashReady ){
             dashTimeCurrent -= Time.deltaTime;
@@ -84,10 +83,10 @@ public class Enemy : MonoBehaviour
     }
      void TakeDamage(int damage)
     {
-        currentHealt -= damage;
-        if (currentHealt <= 0)
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
-            currentHealt = 0;
+            currentHealth = 0;
         }
     }
     void OnTriggerEnter(Collider other)

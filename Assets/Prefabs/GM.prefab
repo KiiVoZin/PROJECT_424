@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2310419293188687388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2310419293188687386}
+  - component: {fileID: 2310419293188687389}
+  m_Layer: 0
+  m_Name: GM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2310419293188687386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310419293188687388}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.347402, y: 1.8061934, z: 2.0047503}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2310419293188687389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310419293188687388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5480e9714c0ffbd45bf718ce0e149fc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+  Skull: {fileID: 8863390654715230668, guid: da0b808e8a90c91409249fe21d071dd0, type: 3}
+  level: 1
+  xp: 0
+  xp2Next: 100
+  health: 100
+  regen: 1
+  damageMultiplier: 1
+  rotationSpeedMultiplier: 1
+  cooldownReduction: 0
+  damageReduction: 0
+  bonusProjectile: 0
+  xpMultiplier: 1
+  time: 0
+  spawnSpeed: 1
+  spawnMultiplier: 1
+  spawnInterval: 1
+  spawnIntervalCurrent: 1
+  misilleLevel: 1
+  misilleCount: 1
+  misilleBaseDamage: 60
+  misilleDamage: 60
+  misilleBaseCooldown: 3
+  satelliteLevel: 1
+  satelliteCount: 1
+  satelliteBaseSpeed: 360
+  satelliteSpeed: 360
+  satelliteBaseDamage: 100
+  satelliteDamage: 100
+  swordLevel: 1
+  swordSwingBaseAngle: 360
+  swordSwingAngle: 360
+  swordSwingBaseSpeed: 360
+  swordSwingSpeed: 360
+  swordBaseDamage: 200
+  swordDamage: 200
+  enemyDamageMultiplier: 1
+  enemyHealthMultiplier: 1
+  skullLevel: 1
+  skullBaseHealth: 10
+  skullBaseDamage: 10
