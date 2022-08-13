@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Health
   - EnemyBullet
+  - PlayerProjectile
+  - PlayerSatellite
+  - PlayerSword
   layers:
   - Default
   - TransparentFX

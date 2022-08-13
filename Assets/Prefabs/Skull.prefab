@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  maxHealth: 100
+  currentHealt: 0
   moveSpeed: 240
   turnAroundSpeed: 4
   dashSpeed: 600
@@ -70,6 +72,8 @@ MonoBehaviour:
   dashCooldownCurrent: 5
   dashReady: 0
   dashTarget: {x: 0, y: 0, z: 0}
+  child: {fileID: 0}
+  childcolor: {fileID: 7836407898086648783}
 --- !u!54 &2634150826102437661
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -159,6 +163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72abe7c066f694d44a8ea72567634e3a, type: 3}
+--- !u!23 &7836407898086648783 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 72abe7c066f694d44a8ea72567634e3a, type: 3}
+  m_PrefabInstance: {fileID: 8863390654486001483}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8974459829101449376 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 72abe7c066f694d44a8ea72567634e3a, type: 3}

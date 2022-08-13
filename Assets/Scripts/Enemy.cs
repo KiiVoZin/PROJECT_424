@@ -8,7 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject Player;
     Collider m_ObjectCollider;
     Rigidbody m_Rigidbody;
-   
+    public int maxHealth = 100;
+    public int currentHealt;
     public float moveSpeed           = 2.2f;
     public float turnAroundSpeed     = 3.3f;
     public float dashSpeed           = 6.0f;
@@ -18,9 +19,15 @@ public class Enemy : MonoBehaviour
     public float dashCooldownCurrent = 5.0f;
     public bool  dashReady           = false;
     public Vector3 dashTarget;
+    public Transform child;
+    public Renderer childcolor;
     void Start()
-    {
+    {   
+        child = transform.GetChild(0);
+        childcolor.material.color =child.GetComponent<Renderer>().material.color;
 
+        currentHealt = maxHealth;
+        
         //Fetch the Rigidbody from the GameObject with this script attached
         m_Rigidbody = GetComponent<Rigidbody>();
         //Fetch the GameObject's Collider (make sure they have a Collider component)
@@ -33,7 +40,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        
+        if(currentHealt==0){
+            Destroy(gameObject);
+        }
         if(dashReady ){
             dashTimeCurrent -= Time.deltaTime;
             
@@ -70,5 +79,42 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.Lerp( transform.rotation, toRotation, turnAroundSpeed * Time.deltaTime );
         }
         //transform.LookAt(Player.transform);
+    }
+     void TakeDamage(int damage)
+    {
+        currentHealt -= damage;
+        if (currentHealt <= 0)
+        {
+            currentHealt = 0;
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag=="PlayerProjectile")
+        {   
+            Destroy(other.gameObject);
+            child.GetComponent<Renderer>().material.color = Color.white;
+            Invoke("changeColor", 0.2f); 
+            TakeDamage(50);
+           
+
+        }
+        if (other.tag == "PlayerSatellite")
+        {
+            
+            child.GetComponent<Renderer>().material.color = Color.white;
+            TakeDamage(50);
+            Invoke("changeColor", 0.2f);
+        }
+        if (other.tag == "PlayerSword")
+        {   
+
+            child.GetComponent<Renderer>().material.color = Color.white;
+            TakeDamage(50);
+            Invoke("changeColor", 0.1f);
+        }
+    }
+    void changeColor(){
+        child.GetComponent<Renderer>().material.color =childcolor.material.color;
     }
 }

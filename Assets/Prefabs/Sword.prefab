@@ -141,9 +141,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2058123938885191507}
   - component: {fileID: 8983775725260931697}
+  - component: {fileID: 4738627099596452331}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: PlayerSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,13 +181,26 @@ MonoBehaviour:
   Player: {fileID: 0}
   swingAngle: 1440
   swingAngleCurrent: 1440
-  cooldown: 1
-  cooldownCurrent: 1
+  cooldown: 3
+  cooldownCurrent: 3
   swingSpeedMax: 720
   swingSpeed: 720
   radiusMax: 3
   radius: 3
   active: 0
+--- !u!65 &4738627099596452331
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058123938885191506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.11257986, y: 0.20097888, z: 1.3999424}
+  m_Center: {x: 0.014449496, y: 0.005685687, z: 0.528584}
 --- !u!1001 &2058123938931123601
 PrefabInstance:
   m_ObjectHideFlags: 0
