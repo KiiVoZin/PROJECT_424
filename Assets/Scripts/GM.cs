@@ -70,7 +70,7 @@ public class GM : MonoBehaviour
     public int skullLevel                = 1;
     public float skullBaseHealth         = 100;
     public float skullBaseDamage         = 10;
-    public float xpPrize                 = 26;
+    public float skullXpPrize            = 26;
 
 
     void gainXp(float amount){
@@ -84,6 +84,7 @@ public class GM : MonoBehaviour
     void levelUp(){
         level ++;
         //open levelUp ui
+        Debug.Log("level up")
 
 
     }
