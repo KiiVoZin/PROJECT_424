@@ -18,7 +18,6 @@ public class GM : MonoBehaviour
     public float cooldownReduction       = 0;  // 15 = %15 cooldown reduction
     public float damageReduction         = 0;
     public float bonusProjectile         = 0;
-    public float damageReduction         = 0;
     public float xpMultiplier            = 1;
  
  
