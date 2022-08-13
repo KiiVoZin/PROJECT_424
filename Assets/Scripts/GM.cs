@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GM : MonoBehaviour
 {
+    
 
     //Player variables
     public int level                     = 1;
