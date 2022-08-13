@@ -44,8 +44,8 @@ public class Enemy : MonoBehaviour
         if(currentHealth <= 0){
 
             gameObject.SetActive(false);
-            GameObject gameManager = GameObject.Find("GameManager");
-            GM gm = (GM) gameManager.GetComponent(typeof(GM));
+            GameObject gameManager = GameObject.Find("GM");
+            GM  gm = (GM) gameManager.GetComponent(typeof(GM));
             gm.gainXp(gm.skullXpPrize);
         }
         if(dashReady ){
@@ -97,9 +97,10 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag=="PlayerProjectile")
         {   
+            //destroy the misille when collide with enemy
             Destroy(other.gameObject);
-            child.GetComponent<Renderer>().material.color = Color.white;
-            Invoke("changeColor", 0.2f); 
+            //child.GetComponent<Renderer>().material.color = Color.white;
+            //Invoke("changeColor", 0.2f); 
             TakeDamage(50);
            
 
@@ -107,16 +108,16 @@ public class Enemy : MonoBehaviour
         if (other.tag == "PlayerSatellite")
         {
             
-            child.GetComponent<Renderer>().material.color = Color.white;
+            //child.GetComponent<Renderer>().material.color = Color.white;
             TakeDamage(50);
-            Invoke("changeColor", 0.2f);
+            //Invoke("changeColor", 0.2f);
         }
         if (other.tag == "PlayerSword")
         {   
 
-            child.GetComponent<Renderer>().material.color = Color.white;
+            //child.GetComponent<Renderer>().material.color = Color.white;
             TakeDamage(50);
-            Invoke("changeColor", 0.1f);
+            //Invoke("changeColor", 0.1f);
         }
     }
     void changeColor(){

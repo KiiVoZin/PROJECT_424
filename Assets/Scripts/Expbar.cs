@@ -6,17 +6,24 @@ public class Expbar : MonoBehaviour
 {
 
     public Slider slider;
+    [SerializeField] 
+    public Text level;
     
-    public void setMaxExp(int cap)
-    {
-        slider.maxValue = cap;
-        slider.value = cap;
+    void Start(){
+        GameObject gameManager = GameObject.Find("GM");
+        GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+        
     }
     
-    public void setExp(int expvalue)
-    {
-        slider.value = expvalue;
-    }
+    void Update(){
+        GameObject gameManager = GameObject.Find("GM");
+        GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+        slider.maxValue = gm.xp2Next;
+        slider.value = gm.xp2Next;
+        slider.value = gm.xp;
+        
+        level.text = gm.level.ToString();
+    }   
 
 
 }
