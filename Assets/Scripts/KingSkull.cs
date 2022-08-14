@@ -33,8 +33,8 @@ public class KingSkull : MonoBehaviour
     private float timeToNextFire         = 0;
     public float moveFasterRadius        = 3;
     public Vector3 dashTarget;
-    public float maxHealth               = 10000;  
-    public float currentHealth           = 10000;   
+    public float maxHealth               = 3000;  
+    public float currentHealth           = 3000;   
     public int R = 3;
     private int randomDirection = 1;
     /* public int patternCounter = 0; */

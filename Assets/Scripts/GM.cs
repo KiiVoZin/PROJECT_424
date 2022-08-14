@@ -110,6 +110,7 @@ public class GM : MonoBehaviour
 
     }
     public void levelUp(){
+        
         level ++;
         //open levelUp ui
         Debug.Log("level up");

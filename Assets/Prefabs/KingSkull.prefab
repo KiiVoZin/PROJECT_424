@@ -247,4 +247,6 @@ MonoBehaviour:
   fireRate: 7
   moveFasterRadius: 3
   dashTarget: {x: 0, y: 0, z: 0}
-  R: 3
+  maxHealth: 3000
+  currentHealth: 3000
+  R: 4

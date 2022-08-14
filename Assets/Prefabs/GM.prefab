@@ -105,3 +105,7 @@ MonoBehaviour:
   skullBaseHealth: 10
   skullBaseDamage: 10
   skullXpPrize: 16
+  kingLevel: 1
+  kingSkullBaseHealth: 10000
+  kingSkullBaseDamage: 5
+  kingSkullXpPrize: 1000

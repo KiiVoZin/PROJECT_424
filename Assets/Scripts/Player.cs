@@ -81,7 +81,9 @@ public class Player : MonoBehaviour
         if (other.tag == "Chest")
         {
             Destroy(other.gameObject);
-
+            GameObject gameManager = GameObject.Find("GM");
+            GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+            gm.getRandomRune();
         }
     }
 
