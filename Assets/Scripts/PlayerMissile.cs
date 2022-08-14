@@ -32,7 +32,13 @@ public class PlayerMissile : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+
+        GameObject gameManager = GameObject.Find("GM");
+        GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+        missileCount = gm.misilleCount;
+        cooldown     = gm.misilleCooldown;
+
 
         transform.position = Player.transform.position;
         cooldownCurrent -= Time.deltaTime;

@@ -27,6 +27,14 @@ public class Sword : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        GameObject gameManager = GameObject.Find("GM");
+        GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+        swingAngle = gm.swordSwingAngle;
+        swingSpeed = gm.swordSwingSpeed;
+        radius     = gm.swordRadius;
+        cooldown   = gm.swordCooldown;
+        
         float sinFrequency = 1000.0f;
         cooldownCurrent -= Time.deltaTime;
         if(cooldownCurrent < 0 ){

@@ -58,6 +58,7 @@ public class GM : MonoBehaviour
     public int   misilleBaseDamage       = 60;
     public float misilleDamage           = 60;
     public float misilleBaseCooldown     = 3;
+    public float misilleCooldown         = 3;
  
     public int   satelliteLevel          = 1;
     public int   satelliteCount          = 1;
@@ -78,6 +79,8 @@ public class GM : MonoBehaviour
     public float swordDamage             = 200;
     public float swordBaseRadius         = 3;
     public float swordRadius             = 3;
+    public float swordBaseCooldown       = 5;
+    public float swordCooldown           = 5;
 
 
     
@@ -106,6 +109,12 @@ public class GM : MonoBehaviour
         xp2Next = level * 100;
 
 
+        var rUp = Random.Range(1,4);
+        if(rUp == 1) upgradeMisille();
+        if(rUp == 2) upgradeSatellite();
+        if(rUp == 3) upgradeSword();
+
+
     }
     public void upgradeDamageMultiplier(float amount){
         damageMultiplier += amount;
@@ -129,8 +138,9 @@ public class GM : MonoBehaviour
     public void upgradeMisille(){
         misilleLevel ++;
         
-        misilleDamage = misilleBaseDamage * misilleLevel  * damageMultiplier;
-        misilleCount  = misilleLevel + bonusProjectile;
+        misilleDamage   = misilleBaseDamage * misilleLevel  * damageMultiplier;
+        misilleCount    = misilleLevel + bonusProjectile;
+        misilleCooldown = misilleBaseCooldown * (100 - cooldownReduction)/100.0f;
     
     }
     public void upgradeSatellite(){
@@ -150,6 +160,8 @@ public class GM : MonoBehaviour
         swordSwingAngle = swordSwingBaseAngle * swordLevel;
         swordSwingSpeed = swordSwingBaseSpeed * swordLevel * rotationSpeedMultiplier;
         swordRadius     = swordBaseRadius * (6 + swordLevel)/6.0f;
+        swordCooldown   = swordBaseCooldown * (100 - cooldownReduction)/100.0f;
+
     
     }
     // Start is called before the first frame update
@@ -176,8 +188,8 @@ public class GM : MonoBehaviour
             e.currentHealth = skullBaseHealth * enemyHealthMultiplier;
             e.Player = Player;
             
-            float randx = Random.Range(4, 20);
-            float randz = Random.Range(4, 20);
+            float randx = Random.Range(4, 32);
+            float randz = Random.Range(4, 32);
             float rands = 0; // random sign
             float randb = 0; // random sign
             if(Random.value<0.5f)
@@ -202,15 +214,16 @@ public class GM : MonoBehaviour
         _titleMissile.text=""+misilleLevel;
         _titleSatellite.text=""+satelliteLevel;
 
-        _titleArmor.text = ""+swordLevel;
-        _titleCooldown.text=""+misilleLevel;
-        _titleDamage.text=""+satelliteLevel;
-        _titleProjectileNum.text=""+misilleLevel;
-        _titleHealth.text=""+swordLevel;
+        _titleArmor.text = ""+damageReduction;
+        _titleCooldown.text=""+cooldownReduction;
+        _titleDamage.text=""+damageMultiplier;
+        _titleProjectileNum.text=""+bonusProjectile;
+        _titleHealth.text=""+health;
         _titlexpbonus.text=""+xpMultiplier;
         
         time += Time.deltaTime;
         spawnIntervalCurrent -= Time.deltaTime;
+
         if(spawnIntervalCurrent < 0){
             spawnSkull();
         }

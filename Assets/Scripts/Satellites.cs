@@ -9,7 +9,7 @@ public class Satellites : MonoBehaviour
 
     
     public int satCount = 3;
-    public int speed = 180;
+    public float speed  = 180;
     public float radius = 5.0f;
 
     // Start is called before the first frame update
@@ -28,7 +28,12 @@ public class Satellites : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        GameObject gameManager = GameObject.Find("GM");
+        GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+        satCount = gm.satelliteCount;
+        speed    = gm.satelliteSpeed;
+        radius   = gm.satelliteRadius;
         
         transform.position = Player.transform.position;
         //transform.eulerAngles = new Vector3(0,  rotationSpeed * Time.deltaTime, 0);
