@@ -8,6 +8,7 @@ public class GM : MonoBehaviour
 
     [SerializeField] GameObject Player;
     [SerializeField] GameObject Skull;
+    [SerializeField] GameObject Chest;
     [SerializeField] 
     private Text _titleSword;
     [SerializeField] 
@@ -192,7 +193,24 @@ public class GM : MonoBehaviour
         _titleSatellite.text=""+0;
         spawnInterval = spawnInterval / spawnSpeed;
     }
+    void spawnChest(){
 
+        float randx = Random.Range(4, 32);
+        float randz = Random.Range(4, 32);
+        float rands = 0; // random sign
+        float randb = 0; // random sign
+
+        if(Random.value<0.5f)
+            rands=-1;
+        else
+            rands=1;
+        if(Random.value<0.5f)
+            randb=-1;
+        else
+            randb=1;
+
+        Instantiate(Chest, new Vector3(Player.transform.position.x + rands*randx, -1,  Player.transform.position.z+ randb*randz), Quaternion.identity);
+    }
 
     void spawnSkull(){
         for(var i = 0; i<spawnMultiplier; i++){
@@ -212,6 +230,7 @@ public class GM : MonoBehaviour
             float randz = Random.Range(4, 32);
             float rands = 0; // random sign
             float randb = 0; // random sign
+
             if(Random.value<0.5f)
                 rands=-1;
             else
@@ -221,7 +240,7 @@ public class GM : MonoBehaviour
             else
                 randb=1;
 
-            newSkull.transform.position  = new Vector3(Player.transform.position.x + rands*randx, Player.transform.position.y, randb*randz);
+            newSkull.transform.position  = new Vector3(Player.transform.position.x + rands*randx, 1, Player.transform.position.z + randb*randz);
         }
         
 
@@ -246,6 +265,10 @@ public class GM : MonoBehaviour
 
         if(spawnIntervalCurrent < 0){
             spawnSkull();
+            if(Random.value<0.01f){
+                spawnChest();
+            }
+            
         }
 
         
