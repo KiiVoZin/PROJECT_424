@@ -9,7 +9,7 @@ public class Satellites : MonoBehaviour
 
     
     public int satCount = 3;
-    public int speed = 180;
+    public float speed  = 180;
     public float radius = 5.0f;
 
     // Start is called before the first frame update

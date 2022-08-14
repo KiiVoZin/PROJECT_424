@@ -80,7 +80,7 @@ public class GM : MonoBehaviour
     public float swordBaseRadius         = 3;
     public float swordRadius             = 3;
     public float swordBaseCooldown       = 5;
-    public float sowrdCooldown           = 5;
+    public float swordCooldown           = 5;
 
 
     
@@ -109,6 +109,12 @@ public class GM : MonoBehaviour
         xp2Next = level * 100;
 
 
+        var rUp = Random.Range(1,4);
+        if(rUp == 1) upgradeMisille();
+        if(rUp == 2) upgradeSatellite();
+        if(rUp == 3) upgradeSword();
+
+
     }
     public void upgradeDamageMultiplier(float amount){
         damageMultiplier += amount;
@@ -132,9 +138,9 @@ public class GM : MonoBehaviour
     public void upgradeMisille(){
         misilleLevel ++;
         
-        misilleDamage = misilleBaseDamage * misilleLevel  * damageMultiplier;
-        misilleCount  = misilleLevel + bonusProjectile;
-        missile
+        misilleDamage   = misilleBaseDamage * misilleLevel  * damageMultiplier;
+        misilleCount    = misilleLevel + bonusProjectile;
+        misilleCooldown = misilleBaseCooldown * (100 - cooldownReduction)/100.0f;
     
     }
     public void upgradeSatellite(){
@@ -154,7 +160,7 @@ public class GM : MonoBehaviour
         swordSwingAngle = swordSwingBaseAngle * swordLevel;
         swordSwingSpeed = swordSwingBaseSpeed * swordLevel * rotationSpeedMultiplier;
         swordRadius     = swordBaseRadius * (6 + swordLevel)/6.0f;
-        swordCooldown   = swordBaseCooldown * (100 - cooldownReduction)/100.0f
+        swordCooldown   = swordBaseCooldown * (100 - cooldownReduction)/100.0f;
 
     
     }
@@ -217,6 +223,7 @@ public class GM : MonoBehaviour
         
         time += Time.deltaTime;
         spawnIntervalCurrent -= Time.deltaTime;
+
         if(spawnIntervalCurrent < 0){
             spawnSkull();
         }

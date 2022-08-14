@@ -36,9 +36,9 @@ public class PlayerMissile : MonoBehaviour
 
         GameObject gameManager = GameObject.Find("GM");
         GM  gm = (GM) gameManager.GetComponent(typeof(GM));
-        misilleCount = gm.misilleCount;
+        missileCount = gm.misilleCount;
         cooldown     = gm.misilleCooldown;
-        
+
 
         transform.position = Player.transform.position;
         cooldownCurrent -= Time.deltaTime;
