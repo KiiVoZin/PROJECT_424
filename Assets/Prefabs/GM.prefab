@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
   Skull: {fileID: 8863390654715230668, guid: da0b808e8a90c91409249fe21d071dd0, type: 3}
+  KingSkull: {fileID: 2310921800900063985, guid: 8baefa2f27ccdef448b1546d6c5a94b9, type: 3}
+  Chest: {fileID: 0}
   _titleSword: {fileID: 0}
   _titleSatellite: {fileID: 0}
   _titleMissile: {fileID: 0}
@@ -60,13 +62,13 @@ MonoBehaviour:
   xp: 0
   xp2Next: 100
   health: 100
-  regen: 1
   damageMultiplier: 1
-  rotationSpeedMultiplier: 1
+  regen: 1
   cooldownReduction: 0
   damageReduction: 0
   bonusProjectile: 0
-  xpMultiplier: 1
+  xpMultiplier: 50.42
+  rotationSpeedMultiplier: 1
   time: 0
   spawnSpeed: 2.03
   spawnMultiplier: 3
@@ -77,6 +79,7 @@ MonoBehaviour:
   misilleBaseDamage: 60
   misilleDamage: 60
   misilleBaseCooldown: 3
+  misilleCooldown: 3
   satelliteLevel: 1
   satelliteCount: 1
   satelliteBaseSpeed: 360
@@ -94,6 +97,8 @@ MonoBehaviour:
   swordDamage: 200
   swordBaseRadius: 3
   swordRadius: 3
+  swordBaseCooldown: 5
+  swordCooldown: 5
   enemyDamageMultiplier: 1
   enemyHealthMultiplier: 1
   skullLevel: 1
