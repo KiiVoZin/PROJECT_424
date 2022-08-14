@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             GameObject gameManager = GameObject.Find("GM");
-            GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+            GM gm = (GM)gameManager.GetComponent(typeof(GM));
             gm.getRandomRune();
         }
     }
