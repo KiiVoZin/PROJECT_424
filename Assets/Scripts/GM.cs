@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GM : MonoBehaviour
 {
-
+    
     [SerializeField] GameObject Player;
     [SerializeField] GameObject Skull;
     [SerializeField] 

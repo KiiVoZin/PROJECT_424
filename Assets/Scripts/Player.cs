@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     void Update()
     {   
         
+        if (Input.GetKeyUp(KeyCode.Keypad1))
+        {
+            Debug.Log("dvsjs");
+        }
         if(currentHealt==0){
             LoadA();
         }
