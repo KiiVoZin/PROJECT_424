@@ -214,11 +214,11 @@ public class GM : MonoBehaviour
         _titleMissile.text=""+misilleLevel;
         _titleSatellite.text=""+satelliteLevel;
 
-        _titleArmor.text = ""+swordLevel;
-        _titleCooldown.text=""+misilleLevel;
-        _titleDamage.text=""+satelliteLevel;
-        _titleProjectileNum.text=""+misilleLevel;
-        _titleHealth.text=""+swordLevel;
+        _titleArmor.text = ""+damageReduction;
+        _titleCooldown.text=""+cooldownReduction;
+        _titleDamage.text=""+damageMultiplier;
+        _titleProjectileNum.text=""+bonusProjectile;
+        _titleHealth.text=""+health;
         _titlexpbonus.text=""+xpMultiplier;
         
         time += Time.deltaTime;
