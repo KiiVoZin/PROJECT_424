@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GM : MonoBehaviour
 {
-    
+
     [SerializeField] GameObject Player;
     [SerializeField] GameObject Skull;
     [SerializeField] 
@@ -34,15 +34,15 @@ public class GM : MonoBehaviour
     public float xp                      = 0;
     public int xp2Next                   = 100;
     public int health                    = 100;
-    public float regen                   = 1;
  
     // passive
     public float damageMultiplier        = 1;
-    public float rotationSpeedMultiplier = 1;
+    public float regen                   = 1;
     public float cooldownReduction       = 0;  // 15 = %15 cooldown reduction
     public float damageReduction         = 0;
     public int bonusProjectile           = 0;
     public float xpMultiplier            = 1;
+    public float rotationSpeedMultiplier = 1;
  
     //world variables
     public float time                    = 0;
@@ -114,17 +114,37 @@ public class GM : MonoBehaviour
         if(rUp == 2) upgradeSatellite();
         if(rUp == 3) upgradeSword();
 
-
     }
+
+    public void getRandomRune(){
+        var rUp = Random.Range(1,7);
+        if(rUp == 1) upgradeDamageMultiplier(0.15f);
+        if(rUp == 2) upgradeRegen(1);
+        if(rUp == 3) upgradeCooldownReduction(5);
+        if(rUp == 4) upgradeDamageReduction(3);
+        if(rUp == 5) upgradeBonusProjectile(1);
+        if(rUp == 6) upgradeXpMultiplier(0.25f);
+    }
+
+
     public void upgradeDamageMultiplier(float amount){
         damageMultiplier += amount;
     }
-    public void upgradeRotationSpeedMultiplier(float amount){
-        rotationSpeedMultiplier += amount;
+    public void upgradeRegen(float amount){
+        regen += amount;
     }
     public void upgradeCooldownReduction(float amount){
         cooldownReduction += amount;
-    }   
+    }
+    public void upgradeDamageReduction(float amount){
+        damageReduction += amount;
+    }
+    public void upgradeBonusProjectile(int amount){
+        bonusProjectile += amount;
+    }
+    public void upgradeXpMultiplier(float amount){
+        xpMultiplier += amount;
+    }
 
     public void upgradeWeapon(string name){
         if      (name == "misille"){
@@ -138,7 +158,7 @@ public class GM : MonoBehaviour
     public void upgradeMisille(){
         misilleLevel ++;
         
-        misilleDamage   = misilleBaseDamage * misilleLevel  * damageMultiplier;
+        misilleDamage   = misilleBaseDamage * (3 + misilleLevel)/3.0f  * damageMultiplier;
         misilleCount    = misilleLevel + bonusProjectile;
         misilleCooldown = misilleBaseCooldown * (100 - cooldownReduction)/100.0f;
     
@@ -146,8 +166,8 @@ public class GM : MonoBehaviour
     public void upgradeSatellite(){
         satelliteLevel ++;
         
-        satelliteDamage = satelliteBaseDamage * satelliteLevel  * damageMultiplier;
-        satelliteSpeed  = satelliteBaseSpeed  * satelliteLevel  * rotationSpeedMultiplier;
+        satelliteDamage = satelliteBaseDamage * (3 + satelliteLevel)/3.0f  * damageMultiplier;
+        satelliteSpeed  = satelliteBaseSpeed  * (1 + satelliteLevel)/10.0f  * rotationSpeedMultiplier;
         satelliteCount  = satelliteLevel + bonusProjectile;
         satelliteRadius = satelliteBaseRadius * (12 + satelliteLevel)/12.0f;
     
@@ -156,9 +176,9 @@ public class GM : MonoBehaviour
     public void upgradeSword(){
         swordLevel ++;
         
-        swordDamage     = swordBaseDamage     * swordLevel *  damageMultiplier;
+        swordDamage     = swordBaseDamage     * (3+swordLevel)/3.0f *  damageMultiplier;
         swordSwingAngle = swordSwingBaseAngle * swordLevel;
-        swordSwingSpeed = swordSwingBaseSpeed * swordLevel * rotationSpeedMultiplier;
+        swordSwingSpeed = swordSwingBaseSpeed * (5 + swordLevel)/5.0f * rotationSpeedMultiplier;
         swordRadius     = swordBaseRadius * (6 + swordLevel)/6.0f;
         swordCooldown   = swordBaseCooldown * (100 - cooldownReduction)/100.0f;
 
