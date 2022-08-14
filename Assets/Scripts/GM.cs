@@ -58,6 +58,7 @@ public class GM : MonoBehaviour
     public int   misilleBaseDamage       = 60;
     public float misilleDamage           = 60;
     public float misilleBaseCooldown     = 3;
+    public float misilleCooldown         = 3;
  
     public int   satelliteLevel          = 1;
     public int   satelliteCount          = 1;
@@ -78,6 +79,8 @@ public class GM : MonoBehaviour
     public float swordDamage             = 200;
     public float swordBaseRadius         = 3;
     public float swordRadius             = 3;
+    public float swordBaseCooldown       = 5;
+    public float sowrdCooldown           = 5;
 
 
     
@@ -131,6 +134,7 @@ public class GM : MonoBehaviour
         
         misilleDamage = misilleBaseDamage * misilleLevel  * damageMultiplier;
         misilleCount  = misilleLevel + bonusProjectile;
+        missile
     
     }
     public void upgradeSatellite(){
@@ -150,6 +154,8 @@ public class GM : MonoBehaviour
         swordSwingAngle = swordSwingBaseAngle * swordLevel;
         swordSwingSpeed = swordSwingBaseSpeed * swordLevel * rotationSpeedMultiplier;
         swordRadius     = swordBaseRadius * (6 + swordLevel)/6.0f;
+        swordCooldown   = swordBaseCooldown * (100 - cooldownReduction)/100.0f
+
     
     }
     // Start is called before the first frame update
@@ -176,8 +182,8 @@ public class GM : MonoBehaviour
             e.currentHealth = skullBaseHealth * enemyHealthMultiplier;
             e.Player = Player;
             
-            float randx = Random.Range(4, 20);
-            float randz = Random.Range(4, 20);
+            float randx = Random.Range(4, 32);
+            float randz = Random.Range(4, 32);
             float rands = 0; // random sign
             float randb = 0; // random sign
             if(Random.value<0.5f)
