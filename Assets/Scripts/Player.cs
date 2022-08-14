@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealt;
     public HealthBar healthBar;
-    public static bool gameIsPaused=false;
+    public static bool gameIsPaused = false;
+    public GameObject pauseMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +21,23 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
+
         if (Input.GetKeyUp(KeyCode.Keypad1))
         {
             Debug.Log("dvsjs");
         }
-        if(currentHealt==0){
+        if (currentHealt == 0)
+        {
             LoadA();
         }
-        if(gameIsPaused){
-            
+        if (gameIsPaused)
+        {
+
 
         }
     }
@@ -57,7 +64,7 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag=="Enemy")
+        if (other.tag == "Enemy")
         {
             TakeDamage(20);
         }
@@ -67,22 +74,35 @@ public class Player : MonoBehaviour
             TakeDamage(10);
         }
         if (other.tag == "Health")
-        {   
+        {
             Destroy(other.gameObject);
             RestoreHealth(30);
         }
-        if(other.tag=="Chest"){
+        if (other.tag == "Chest")
+        {
             Destroy(other.gameObject);
-           
+
         }
     }
-    
-    
+
+
 
     public void LoadA()
     {
         Debug.Log("sceneName to load: " + "MainMenu");
         SceneManager.LoadScene("MainMenu");
     }
-    
+
+    public void PauseGame()
+    {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
+        else
+        {
+            Time.timeScale = 0;
+        }
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+    }
 }
