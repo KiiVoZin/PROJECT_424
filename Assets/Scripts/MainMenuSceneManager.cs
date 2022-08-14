@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
+using UnityEditor;
 
 
 public class MainMenuSceneManager : MonoBehaviour
@@ -11,6 +13,10 @@ public class MainMenuSceneManager : MonoBehaviour
     public AudioMixer audioMixer;
     public GameObject MainMenu;
     public GameObject OptionsMenu;
+
+    public void Start()
+    {
+    }
 
     public void LoadA()
     {
@@ -30,14 +36,13 @@ public class MainMenuSceneManager : MonoBehaviour
 
     public void Options()
     {
-        //OptionsMenu.SetActive(true);
-        MainMenu.SetActive(false);
+        //MainMenu.SetActive(false);
     }
 
     public void Back()
     {
         //OptionsMenu.SetActive(false);
-        MainMenu.SetActive(true);
+        //MainMenu.SetActive(true);
     }
 
 
