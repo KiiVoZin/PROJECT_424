@@ -8,7 +8,7 @@
 - [x] Add each group member to your github repo
 - [x] Add your reports to your github repo
 - [x] Send an email to tobbetubil424@gmail.com including github repo name and github usernames for each person
-- [ ] Developing Game ✍️
-- [ ] Testing gameplay and scripts 🧪
-- [ ] Creating prototype 👷‍♂️
-- [ ] Final product 🎉
+- [x] Developing Game ✍️
+- [x] Testing gameplay and scripts 🧪
+- [x] Creating prototype 👷‍♂️
+- [] Final product 🎉
