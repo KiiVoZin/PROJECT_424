@@ -19,6 +19,12 @@ public class Sword : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject gameManager = GameObject.Find("GM");
+        GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+        swingAngle = gm.swordSwingAngle;
+        swingSpeed = gm.swordSwingSpeed;
+        radius     = gm.swordRadius;
+        cooldown   = gm.swordCooldown;
         transform.Translate(0,0,radius);
     }
 

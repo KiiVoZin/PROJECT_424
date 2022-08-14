@@ -15,7 +15,12 @@ public class Satellites : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameObject gameManager = GameObject.Find("GM");
+        GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+        satCount = gm.satelliteCount;
+        speed    = gm.satelliteSpeed;
+        radius   = gm.satelliteRadius;
+        
         var sats = new GameObject[satCount];
         for(var i  = 0; i < sats.Length; i++){
             var clone = Instantiate(myPrefab, transform);
