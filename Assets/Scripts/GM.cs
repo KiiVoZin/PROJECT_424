@@ -52,6 +52,9 @@ public class GM : MonoBehaviour
     public float satelliteSpeed          = 360;
     public int   satelliteBaseDamage     = 100;
     public float satelliteDamage         = 100;
+    public float satelliteBaseRadius     = 5;
+    public float satelliteRadius         = 5;
+
 
     public int   swordLevel              = 1;
     public int   swordSwingBaseAngle     = 360;
@@ -60,6 +63,8 @@ public class GM : MonoBehaviour
     public float swordSwingSpeed         = 360;
     public int   swordBaseDamage         = 200;
     public float swordDamage             = 200;
+    public float swordBaseRadius         = 3;
+    public float swordRadius             = 3;
 
 
     
@@ -121,6 +126,7 @@ public class GM : MonoBehaviour
         satelliteDamage = satelliteBaseDamage * satelliteLevel  * damageMultiplier;
         satelliteSpeed  = satelliteBaseSpeed  * satelliteLevel  * rotationSpeedMultiplier;
         satelliteCount  = satelliteLevel + bonusProjectile;
+        satelliteRadius = satelliteBaseRadius * (12 + satelliteLevel)/12.0f;
     
     }
 
@@ -130,6 +136,7 @@ public class GM : MonoBehaviour
         swordDamage     = swordBaseDamage     * swordLevel *  damageMultiplier;
         swordSwingAngle = swordSwingBaseAngle * swordLevel;
         swordSwingSpeed = swordSwingBaseSpeed * swordLevel * rotationSpeedMultiplier;
+        swordRadius     = swordBaseRadius * (6 + swordLevel)/6.0f;
     
     }
     // Start is called before the first frame update
