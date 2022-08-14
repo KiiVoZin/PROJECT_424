@@ -8,6 +8,7 @@ public class GM : MonoBehaviour
 
     [SerializeField] GameObject Player;
     [SerializeField] GameObject Skull;
+    [SerializeField] GameObject KingSkull;
     [SerializeField] GameObject Chest;
     [SerializeField] 
     private Text _titleSword;
@@ -94,6 +95,11 @@ public class GM : MonoBehaviour
     public float skullBaseDamage         = 10;
     public float skullXpPrize            = 16;
 
+    public int kingLevel                 = 1;
+    public float kingSkullBaseHealth     = 10000;
+    public float kingSkullBaseDamage     = 5;
+    public float kingSkullXpPrize        = 1000;
+
 
     public void gainXp(float amount){
         xp += amount * xpMultiplier;
@@ -115,8 +121,38 @@ public class GM : MonoBehaviour
         if(rUp == 2) upgradeSatellite();
         if(rUp == 3) upgradeSword();
 
-    }
 
+        if(level % 10 == 0)spawnKingSkull();
+        
+    }
+    public void spawnKingSkull(){
+        float randx = Random.Range(4, 8);
+        float randz = Random.Range(4, 8);
+        float rands = 0; // random sign
+        float randb = 0; // random sign
+
+        if(Random.value<0.5f)
+            rands=-1;
+        else
+            rands=1;
+        if(Random.value<0.5f)
+            randb=-1;
+        else
+            randb=1;
+        
+        
+        Vector3 randomPosition = new Vector3(Player.transform.position.x + rands*randx, -0.25f,  Player.transform.position.z+ randb*randz);
+
+        GameObject newKing = KingPool.instance.GetPooledObj(); 
+
+        KingSkull e = newKing.GetComponent<KingSkull>();
+        newKing.SetActive(true);
+        e.maxHealth     = kingSkullBaseHealth * enemyHealthMultiplier;
+        e.currentHealth = kingSkullBaseHealth * enemyHealthMultiplier;
+        e.Player = Player;    
+
+        e.transform.position = randomPosition;   
+    }
     public void getRandomRune(){
         var rUp = Random.Range(1,7);
         if(rUp == 1) upgradeDamageMultiplier(0.15f);

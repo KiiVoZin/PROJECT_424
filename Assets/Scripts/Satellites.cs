@@ -32,11 +32,11 @@ public class Satellites : MonoBehaviour
     }
     public void increaseSatCount(){
         int childs = transform.childCount;
-        for (int i = childs - 1; i > 0; i--){
+        for (int i = childs - 1; i >= 0; i--){
             GameObject.Destroy(transform.GetChild(i).gameObject);
         }
 
-        
+
         var sats = new GameObject[satCount];
         for(var i  = 0; i < sats.Length; i++){
             var clone = Instantiate(myPrefab, transform);

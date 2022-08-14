@@ -6,7 +6,7 @@ using UnityEngine;
 public class KingSkull : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject Player;
+    [SerializeField] public     GameObject Player;
     Collider m_ObjectCollider;
     Rigidbody m_Rigidbody;
     [SerializeField] GameObject bullet;
@@ -33,7 +33,8 @@ public class KingSkull : MonoBehaviour
     private float timeToNextFire         = 0;
     public float moveFasterRadius        = 3;
     public Vector3 dashTarget;
-
+    public float maxHealth               = 10000;  
+    public float currentHealth           = 10000;   
     public int R = 3;
     private int randomDirection = 1;
     /* public int patternCounter = 0; */
@@ -119,6 +120,13 @@ public class KingSkull : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+        if(currentHealth <= 0){
+
+            gameObject.SetActive(false);
+            GameObject gameManager = GameObject.Find("GM");
+            GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+            gm.gainXp(gm.kingSkullXpPrize);
+        }
         timeToNextFire          -= Time.deltaTime;
         stateDurationCurrent    -= Time.deltaTime;
 
