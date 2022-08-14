@@ -8,6 +8,7 @@ public class GM : MonoBehaviour
 
     [SerializeField] GameObject Player;
     [SerializeField] GameObject Skull;
+    [SerializeField] GameObject Chest;
     [SerializeField] 
     private Text _titleSword;
     [SerializeField] 
@@ -146,18 +147,10 @@ public class GM : MonoBehaviour
         xpMultiplier += amount;
     }
 
-    public void upgradeWeapon(string name){
-        if      (name == "misille"){
-            upgradeMisille();
-        }else if(name == "satellite"){
-            upgradeSatellite();
-        }else if(name == "sword"){
-            upgradeSword();
-        }
-    }
+    
     public void upgradeMisille(){
         misilleLevel ++;
-        
+        Debug.Log("Misilles upgraded!");
         misilleDamage   = misilleBaseDamage * (3 + misilleLevel)/3.0f  * damageMultiplier;
         misilleCount    = misilleLevel + bonusProjectile;
         misilleCooldown = misilleBaseCooldown * (100 - cooldownReduction)/100.0f;
@@ -165,17 +158,21 @@ public class GM : MonoBehaviour
     }
     public void upgradeSatellite(){
         satelliteLevel ++;
-        
+        Debug.Log("Satellite upgraded!");
         satelliteDamage = satelliteBaseDamage * (3 + satelliteLevel)/3.0f  * damageMultiplier;
         satelliteSpeed  = satelliteBaseSpeed  * (1 + satelliteLevel)/10.0f  * rotationSpeedMultiplier;
         satelliteCount  = satelliteLevel + bonusProjectile;
         satelliteRadius = satelliteBaseRadius * (12 + satelliteLevel)/12.0f;
+        Debug.Log(satelliteCount);
+        GameObject go = GameObject.Find("Satellites");
+        Satellites  satellites = (Satellites) go.GetComponent(typeof(Satellites));
+        satellites.increaseSatCount();
     
     }
 
     public void upgradeSword(){
         swordLevel ++;
-        
+        Debug.Log("Sword upgraded!");
         swordDamage     = swordBaseDamage     * (3+swordLevel)/3.0f *  damageMultiplier;
         swordSwingAngle = swordSwingBaseAngle * swordLevel;
         swordSwingSpeed = swordSwingBaseSpeed * (5 + swordLevel)/5.0f * rotationSpeedMultiplier;
@@ -192,7 +189,24 @@ public class GM : MonoBehaviour
         _titleSatellite.text=""+0;
         spawnInterval = spawnInterval / spawnSpeed;
     }
+    void spawnChest(){
 
+        float randx = Random.Range(4, 32);
+        float randz = Random.Range(4, 32);
+        float rands = 0; // random sign
+        float randb = 0; // random sign
+
+        if(Random.value<0.5f)
+            rands=-1;
+        else
+            rands=1;
+        if(Random.value<0.5f)
+            randb=-1;
+        else
+            randb=1;
+
+        Instantiate(Chest, new Vector3(Player.transform.position.x + rands*randx, -1,  Player.transform.position.z+ randb*randz), Quaternion.identity);
+    }
 
     void spawnSkull(){
         for(var i = 0; i<spawnMultiplier; i++){
@@ -212,6 +226,7 @@ public class GM : MonoBehaviour
             float randz = Random.Range(4, 32);
             float rands = 0; // random sign
             float randb = 0; // random sign
+
             if(Random.value<0.5f)
                 rands=-1;
             else
@@ -221,7 +236,7 @@ public class GM : MonoBehaviour
             else
                 randb=1;
 
-            newSkull.transform.position  = new Vector3(Player.transform.position.x + rands*randx, Player.transform.position.y, randb*randz);
+            newSkull.transform.position  = new Vector3(Player.transform.position.x + rands*randx, 1, Player.transform.position.z + randb*randz);
         }
         
 
@@ -246,6 +261,10 @@ public class GM : MonoBehaviour
 
         if(spawnIntervalCurrent < 0){
             spawnSkull();
+            if(Random.value<0.01f){
+                spawnChest();
+            }
+            
         }
 
         

@@ -25,9 +25,12 @@ public class PlayerMissile : MonoBehaviour
     void Start()
     {
 
-        
-        closestEnemy=null;
-        EnemyContact=false;
+        GameObject gameManager = GameObject.Find("GM");
+        GM  gm = (GM) gameManager.GetComponent(typeof(GM));
+        missileCount = gm.misilleCount;
+        cooldown     = gm.misilleCooldown;
+        closestEnemy = null;
+        EnemyContact = false;
     }
 
     // Update is called once per frame
