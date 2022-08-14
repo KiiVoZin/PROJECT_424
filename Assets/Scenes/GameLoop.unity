@@ -213,21 +213,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 299996188, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
-      propertyPath: m_Name
-      value: SatelliteLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 810605416, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
+    - target: {fileID: 2287120351502983511, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 810605416, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
+    - target: {fileID: 2287120351502983511, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2017487031, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
-      propertyPath: m_Name
-      value: SwordLevel
       objectReference: {fileID: 0}
     - target: {fileID: 5044989743462508188, guid: 46a92591b71266245ab51c9e0be04a90, type: 3}
       propertyPath: m_AnchorMax.x
