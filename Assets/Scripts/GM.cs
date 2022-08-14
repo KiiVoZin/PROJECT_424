@@ -147,18 +147,10 @@ public class GM : MonoBehaviour
         xpMultiplier += amount;
     }
 
-    public void upgradeWeapon(string name){
-        if      (name == "misille"){
-            upgradeMisille();
-        }else if(name == "satellite"){
-            upgradeSatellite();
-        }else if(name == "sword"){
-            upgradeSword();
-        }
-    }
+    
     public void upgradeMisille(){
         misilleLevel ++;
-        
+        Debug.Log("Misilles upgraded!");
         misilleDamage   = misilleBaseDamage * (3 + misilleLevel)/3.0f  * damageMultiplier;
         misilleCount    = misilleLevel + bonusProjectile;
         misilleCooldown = misilleBaseCooldown * (100 - cooldownReduction)/100.0f;
@@ -166,17 +158,21 @@ public class GM : MonoBehaviour
     }
     public void upgradeSatellite(){
         satelliteLevel ++;
-        
+        Debug.Log("Satellite upgraded!");
         satelliteDamage = satelliteBaseDamage * (3 + satelliteLevel)/3.0f  * damageMultiplier;
         satelliteSpeed  = satelliteBaseSpeed  * (1 + satelliteLevel)/10.0f  * rotationSpeedMultiplier;
         satelliteCount  = satelliteLevel + bonusProjectile;
         satelliteRadius = satelliteBaseRadius * (12 + satelliteLevel)/12.0f;
+        Debug.Log(satelliteCount);
+        GameObject go = GameObject.Find("Satellites");
+        Satellites  satellites = (Satellites) go.GetComponent(typeof(Satellites));
+        satellites.increaseSatCount();
     
     }
 
     public void upgradeSword(){
         swordLevel ++;
-        
+        Debug.Log("Sword upgraded!");
         swordDamage     = swordBaseDamage     * (3+swordLevel)/3.0f *  damageMultiplier;
         swordSwingAngle = swordSwingBaseAngle * swordLevel;
         swordSwingSpeed = swordSwingBaseSpeed * (5 + swordLevel)/5.0f * rotationSpeedMultiplier;

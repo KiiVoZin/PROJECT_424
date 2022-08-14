@@ -20,6 +20,22 @@ public class Satellites : MonoBehaviour
         satCount = gm.satelliteCount;
         speed    = gm.satelliteSpeed;
         radius   = gm.satelliteRadius;
+
+        var sats = new GameObject[satCount];
+        for(var i  = 0; i < sats.Length; i++){
+            var clone = Instantiate(myPrefab, transform);
+            sats[i] = clone;
+            
+            sats[i].transform.position = new Vector3(0,1,radius)+transform.position;
+            sats[i].transform.RotateAround(transform.position, Vector3.up, 360/satCount * i);
+        }
+    }
+    public void increaseSatCount(){
+        int childs = transform.childCount;
+        for (int i = childs - 1; i > 0; i--){
+            GameObject.Destroy(transform.GetChild(i).gameObject);
+        }
+
         
         var sats = new GameObject[satCount];
         for(var i  = 0; i < sats.Length; i++){
