@@ -2,25 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 
 public class MainMenuSceneManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public AudioMixer audioMixer;
+    public GameObject MainMenu;
+    public GameObject OptionsMenu;
+
     public void LoadA()
     {
         Debug.Log("sceneName to load: " + "GameLoop");
         SceneManager.LoadScene("GameLoop");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("volume", volume);
+    }
+
+    public void Options()
+    {
+        //OptionsMenu.SetActive(true);
+        MainMenu.SetActive(false);
+    }
+
+    public void Back()
+    {
+        //OptionsMenu.SetActive(false);
+        MainMenu.SetActive(true);
     }
 
 
