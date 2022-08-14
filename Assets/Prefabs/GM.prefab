@@ -49,6 +49,12 @@ MonoBehaviour:
   _titleSword: {fileID: 0}
   _titleSatellite: {fileID: 0}
   _titleMissile: {fileID: 0}
+  _titleHealth: {fileID: 0}
+  _titleArmor: {fileID: 0}
+  _titleProjectileNum: {fileID: 0}
+  _titlexpbonus: {fileID: 0}
+  _titleDamage: {fileID: 0}
+  _titleCooldown: {fileID: 0}
   expbar: {fileID: 0}
   level: 1
   xp: 0
@@ -77,6 +83,8 @@ MonoBehaviour:
   satelliteSpeed: 360
   satelliteBaseDamage: 100
   satelliteDamage: 100
+  satelliteBaseRadius: 5
+  satelliteRadius: 5
   swordLevel: 1
   swordSwingBaseAngle: 360
   swordSwingAngle: 360
@@ -84,9 +92,11 @@ MonoBehaviour:
   swordSwingSpeed: 360
   swordBaseDamage: 200
   swordDamage: 200
+  swordBaseRadius: 3
+  swordRadius: 3
   enemyDamageMultiplier: 1
   enemyHealthMultiplier: 1
   skullLevel: 1
   skullBaseHealth: 10
   skullBaseDamage: 10
-  xpPrize: 26
+  skullXpPrize: 16

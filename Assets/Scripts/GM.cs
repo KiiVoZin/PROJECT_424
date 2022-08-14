@@ -14,6 +14,19 @@ public class GM : MonoBehaviour
     private Text _titleSatellite;
     [SerializeField] 
     private Text _titleMissile;
+    [SerializeField] 
+    private Text _titleHealth;
+    [SerializeField] 
+    private Text _titleArmor;
+    [SerializeField] 
+    private Text _titleProjectileNum;
+    [SerializeField] 
+    private Text _titlexpbonus;
+    [SerializeField] 
+    private Text _titleDamage;
+    [SerializeField] 
+    private Text _titleCooldown;
+
     public Expbar expbar;
 
     //Player variables
@@ -188,6 +201,14 @@ public class GM : MonoBehaviour
         _titleSword.text = ""+swordLevel;
         _titleMissile.text=""+misilleLevel;
         _titleSatellite.text=""+satelliteLevel;
+
+        _titleArmor.text = ""+swordLevel;
+        _titleCooldown.text=""+misilleLevel;
+        _titleDamage.text=""+satelliteLevel;
+        _titleProjectileNum.text=""+misilleLevel;
+        _titleHealth.text=""+swordLevel;
+        _titlexpbonus.text=""+xpMultiplier;
+        
         time += Time.deltaTime;
         spawnIntervalCurrent -= Time.deltaTime;
         if(spawnIntervalCurrent < 0){
