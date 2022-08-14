@@ -11,4 +11,4 @@
 - [x] Developing Game ✍️
 - [x] Testing gameplay and scripts 🧪
 - [x] Creating prototype 👷‍♂️
-- [] Final product 🎉
+- [ ] Final product 🎉
