@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             PauseGame();
         }
@@ -103,6 +103,7 @@ public class Player : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+        Cursor.visible = !Cursor.visible;
         pauseMenu.SetActive(!pauseMenu.activeSelf);
     }
 }
