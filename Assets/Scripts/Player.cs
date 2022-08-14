@@ -105,6 +105,7 @@ public class Player : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+        Cursor.visible = !Cursor.visible;
         pauseMenu.SetActive(!pauseMenu.activeSelf);
     }
 }
